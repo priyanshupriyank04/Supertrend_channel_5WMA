@@ -1,0 +1,1 @@
+# Supertrend_channel_5WMA

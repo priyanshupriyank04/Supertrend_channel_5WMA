@@ -1,9 +1,49 @@
- #Supertrend_channel_5WMA
- #This is the repository which has code file for live trading system based on trend reversion using Supertrend Channel along with 5 WMA
- #This is a live trading system project, by no means I guarrantee any kind of alpha 
- #You need Zerodha Api Key to run the code at your end, will be sharing the code files where one of them is data main py file which handles 
-  tick by tick data and candle generation which works better than fetching historical candles after each candle formation from exchange as 
-  it has some form of time delay 
- #The second file is the strategy checker py file which deals with possible trade alert checking and execution on its end after every 1min 
-  and 5min candle is completed and added to the sql database 
- #Will also be adding the requirements.txt file for you to check and install all the dependencies at your end 
+# 📊 Supertrend Channel + 5WMA – Live Trading System
+
+This repository contains the code for a **live trading system** based on **trend reversion** using the **Supertrend Channel** along with **5-period Weighted Moving Average (5WMA)**.
+
+### ⚠️ Disclaimer
+
+> This is a **live trading system project** meant for educational and research purposes.
+> **No guarantees of profitability or alpha** are made — please use with caution and at your own risk.
+
+### 🛠 Requirements
+
+* A valid **Zerodha API Key** (Kite Connect) is needed to run the system.
+* A working **PostgreSQL database** instance to store OHLC data and trade logs.
+* Installation dependencies are listed in `requirements.txt`.
+
+### 📁 Code Structure
+
+#### `data_main.py`
+
+* Handles **tick-by-tick live market data** using WebSocket.
+* Converts ticks into **1-minute and 5-minute OHLC candles**.
+* Performs better than fetching historical candles post-formation, which often involves latency.
+
+#### `strategy_checker.py`
+
+* Monitors the SQL database for completed candles.
+* Checks for **trend reversal trade alerts** using Supertrend & 5WMA logic.
+* Executes trades based on conditions and logs them accordingly.
+
+
+### 📦 Setup
+
+Clone the repository and install dependencies using:
+
+```bash
+pip install -r requirements.txt
+```
+
+Set your Zerodha credentials and PostgreSQL connection in the environment or config.
+
+
+
+### 🧠 Strategy Summary
+
+* Uses **Supertrend Channel** as a dynamic support/resistance range.
+* Entry confirmation is done using 5-period **Weighted Moving Average (5WMA)** logic.
+* Applies to both **1-minute and 5-minute timeframes**.
+
+
